@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+**/SimpleEQ/Builds
+**/SimpleEQ/JuceLibraryCode
+**/.DS_Store
