@@ -56,6 +56,13 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+
+    static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+    // Note: The second parameter in this is an undo manager
+    // Learn about undo managers as this maybe a cool feature even in fx plugins I hate when I mistakenly
+    // change a parameter and can't get back to the previous state.
+    juce::AudioProcessorValueTreeState apvts {*this, nullptr, "Parameters", createParameterLayout()};
+
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleEQAudioProcessor)
